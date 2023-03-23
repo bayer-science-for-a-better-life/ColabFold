@@ -1,0 +1,55 @@
+name: colabfold_local
+
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.9
+  - pip
+
+  # mostly cuda
+  - nvidia::cuda-nvcc
+  - cudnn==8.2.1.32
+  - cudatoolkit==11.1.1
+  - openmm==7.5.1
+
+  # colabfold, pyproject toml
+  - absl-py
+  - matplotlib
+  - numpy
+  - pandas
+  - requests
+  - importlib-metadata
+  - appdirs
+
+  # deep learning
+  - tensorflow
+  - dm-haiku
+  - dm-tree
+  - jax==0.3.25
+  #- jaxlib==0.3.25 => pip fix needed, revisit at some point
+
+  # system / video
+  - libgcc
+  - ffmpeg
+
+  # tools
+  - pdbfixer
+  - kalign2=2.04
+  - hhsuite=3.3.0
+  - mmseqs2=14.7e284
+  - py3Dmol
+  - biopython==1.79
+
+  # convenience
+  - jupyter
+  - pytest
+
+  - pip:
+      # - git+https://github.com/sokrypton/ColabFold
+      - https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.25+cuda11.cudnn82-cp39-cp39-manylinux2014_x86_64.whl
+      - git+https://github.com/deepmind/alphafold
+      - alphafold-colabfold
+      - -e .

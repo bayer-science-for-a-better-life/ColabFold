@@ -1,0 +1,97 @@
+# single parameter for for colabfold search and batch.
+mmseqs:
+  # Configuration file for running a protein sequence alignment pipeline
+
+  # Input files
+  query: "/path/to/query.fasta"  # Fasta files with the queries.
+  dbbase: "/path/to/database_and_indices"  # The path to the database and indices you downloaded and created with setup_databases.sh
+  base: "/path/to/results"  # Directory for the results (and intermediate files)
+
+  # Databases
+  db1: "/path/to/uniref30_2202_db"  # UniRef database
+  db2: ""  # Templates database (not used)
+  db3: "/path/to/colabfold_envdb_202108_db"  # Environmental database
+
+  # MMseqs options
+  s: 8  # MMseqs sensitivity. Lowering this will result in a much faster search but possibly sparser msas
+  mmseqs: "mmseqs"  # Location of the mmseqs binary
+  expand-eval: infinity  # Maximum e-value for expanding clusters (infinity = no limit)
+  align-eval: 10  # E-value cutoff for alignment
+  diff: 3000  # Maximum number of differences in alignments
+  qsc: -20.0  # Q-score cutoff for filtering alignments
+  max-accept: 1000000  # Maximum number of sequences to accept
+  db-load-mode: 0  # MMseqs database loading mode
+  threads: 64  # Number of threads to use
+
+  # Additional options
+  use-env: 1  # Whether to use the environmental database (1 = yes, 0 = no)
+  use-templates: 0  # Whether to use the templates database (1 = yes, 0 = no)
+  filter: 1  # Whether to filter alignments based on q-score (1 = yes, 0 = no)
+
+alphafold:
+  # Compute models until plddt (single chain) or ptmscore (complex) > threshold is reached. This can make colabfold much faster by only running the first model for easy queries.
+  stop-at-score: 100
+  # Number of prediction recycles. Increasing recycles can improve the quality but slows down the prediction.
+  num-recycle: None
+  # Specify convergence criteria. Run until the distance between recycles is within specified value.
+  recycle-early-stop-tolerance: None
+  # Number of ensembles. The trunk of the network is run multiple times with different random choices for the MSA cluster centers.
+  num-ensemble: 1
+  # Number of seeds to try. Will iterate from range(random_seed, random_seed+num_seeds)..
+  num-seeds: 1
+  # Changing the seed for the random number generator can result in different structure predictions.
+  random-seed: 0
+  # number of models to use
+  num-models: 5
+  # Whenever the input length changes, the model needs to be recompiled. We pad sequences by specified length, so we can e.g. compute sequence from length 100 to 110 without recompiling. The prediction will become marginally slower for the longer input, but overall performance increases due to not recompiling. Set to 0 to disable.
+  recompile-padding: 10
+  model-order: "1,2,3,4,5"
+  # disabled in this fork
+  # host-url: "<disabled>"
+  data:
+  # Using an a3m file as input overwrites this option.
+  # [ mmseqs2_uniref_env, mmseqs2_uniref, single_sequence ]
+  msa-mode: "mmseqs2_uniref_env"
+  # predict structure/complex using the following model. Auto will pick "alphafold2_ptm" for structure predictions and "alphafold2_multimer_v3" for complexes.
+  # choices: [ auto, alphafold2, alphafold2_ptm, alphafold2_multimer_v1, alphafold2_multimer_v2, alphafold2_multimer_v3 ]
+  model-type: "auto"
+  # Use amber for structure refinement. To control number of top ranked structures are relaxed set --num-relax.
+  amber: "False"
+  # specify how many of the top ranked structures to relax using amber.
+  num-relax: 0
+  # Use templates from pdb.
+  templates: False
+  # Directory with pdb files to be used as input.
+  custom-template-path: None
+  # rank models by auto, plddt, ptmscore, iptm, or multimer.
+  # choices: [ auto, plddt, ptm, iptm, multimer ]
+  rank: "auto"
+  # rank models by unpaired, paired, or unpaired_paired.
+  # choices: [ unpaired, paired, unpaired_paired ]
+  pair-mode: "unpaired_paired"
+  #       sort queries by: none, length, or random.
+  #        choices: [ none, length, random ]
+  sort-queries-by: "length"
+  # saves the single representation embeddings of all models.
+  save-single-representations: False
+  # saves the pair representation embeddings of all models.
+  save-pair-representations: False
+  # activate dropouts during inference to sample from uncertainty of the models.
+  use-dropout: False
+  # number of sequence clusters to use.
+  max-seq: None
+  # "number of extra sequences to use"
+  max-extra-seq: None
+  # EXPERIMENTAL: for multimer models, disable cluster profiles
+  disable-cluster-profile: False
+  # zip all results into one <jobname>.result.zip and delete the original files
+  zip: False
+  # run amber on GPU instead of CPU
+  use-gpu-relax: False
+  # save ALL raw outputs from model to a pickle file
+  save_all: False
+  # save all intermediate predictions at each recycle
+  save-recycles: False
+  overwrite-existing-results: False
+  # disable-unified-memory
+  disable-unified-memory: False
