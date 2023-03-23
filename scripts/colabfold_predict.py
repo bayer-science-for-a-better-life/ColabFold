@@ -1785,7 +1785,7 @@ def main():
     if commit:
         version += f" ({commit})"
 
-    logger.info(f"Running colabfold {version}")
+    logger.info(f"******Running *internal* colabfold fork {version}******")
 
     data_dir = Path(args.data or default_data_dir)
 

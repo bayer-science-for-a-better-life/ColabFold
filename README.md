@@ -1,5 +1,26 @@
 # ColabFold - v1.5.2
 
+**custom fork of ColabFold**
+
+This fork is currently doing two things:
+
+1) streamline installation from a single conda file (+install locally to make development easier)
+2) add custom console scripts that disable the use of the mmseqs2 server
+
+A typical use case is to run first mmseqs and then AlphaFold predictions, please use --help for all options.
+
+```bash
+af_msa sequences.fasta /*/data/openfold/mmseqs_dbs af_msa_output --db1 uniref30_2103_db
+af_predict af_msa_output af_predict_output
+```
+
+Custom MSAs can be provided as well, make sure that the a3m files are in a single directory:
+    
+```bash
+af_predict af_predict custom_msa/ structures/custom_msa/ --num-recycle 1 --num-models 1
+```
+
+
 ```diff
 + 31Jul2023: 2023/07/31: The ColabFold MSA server is back to normal
 +            It was using older DB (UniRef30 2202/PDB70 220313) from 27th ~8:30 AM CEST to 31st ~11:10 AM CEST.

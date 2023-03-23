@@ -36,7 +36,7 @@ def mmseqs_create_querydb(fasta: Path, base: Path, mmseqs: Path = Path("mmseqs")
 
 def run_mmseqs(mmseqs: Path, params: List[Union[str, Path]]):
     params_log = " ".join(str(i) for i in params)
-    logger.info(f"Running {mmseqs} {params_log}")
+    logger.info(f"******Running *internal* mmseqs {mmseqs} {params_log}******")
     subprocess.check_call([mmseqs] + params)
 
 
