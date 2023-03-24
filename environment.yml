@@ -49,7 +49,7 @@ dependencies:
 
   - pip:
       # - git+https://github.com/sokrypton/ColabFold
+      # - git+https://github.com/deepmind/alphafold
       - https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.25+cuda11.cudnn82-cp39-cp39-manylinux2014_x86_64.whl
-      - git+https://github.com/deepmind/alphafold
       - alphafold-colabfold
       - -e .

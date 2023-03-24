@@ -8,6 +8,7 @@ This fork is currently doing two things:
 2) add custom console scripts that disable the use of the mmseqs2 server
 
 A typical use case is to run first mmseqs and then AlphaFold predictions, please use --help for all options.
+For quick testing, find a fasta file of HSA, the alignment and a prediction in the test_data-local folder.
 
 ```bash
 af_msa sequences.fasta /*/data/openfold/mmseqs_dbs af_msa_output --db1 uniref30_2103_db
