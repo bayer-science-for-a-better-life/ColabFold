@@ -52,4 +52,4 @@ dependencies:
       # - git+https://github.com/deepmind/alphafold
       - https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.25+cuda11.cudnn82-cp39-cp39-manylinux2014_x86_64.whl
       - alphafold-colabfold
-      - -e .
+      - git+https://github.com/bayer-science-for-a-better-life/ColabFold

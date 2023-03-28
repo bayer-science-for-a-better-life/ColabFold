@@ -60,6 +60,7 @@ include = '''
 /(
   | colabfold
   | tests
+  | scripts
 )/
 '''
 # The colabfold.py exclude doesn't work, but the "fmt: off" inside of it does
