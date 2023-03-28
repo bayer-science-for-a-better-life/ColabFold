@@ -51,8 +51,8 @@ addopts = "--tb=short"
 colabfold_batch = 'colabfold.batch:main'
 colabfold_search = 'colabfold.mmseqs.search:main'
 colabfold_split_msas = 'colabfold.mmseqs.split_msas:main'
-af_msa = 'scripts.colabfold_msa:main'
-af_predict = 'scripts.colabfold_predict:main'
+af_msa = 'colabfold.scripts.colabfold_msa:main'
+af_predict = 'colabfold.scripts.colabfold_predict:main'
 
 [tool.black]
 # Format only the new package, don't touch the existing stuff
@@ -60,7 +60,6 @@ include = '''
 /(
   | colabfold
   | tests
-  | scripts
 )/
 '''
 # The colabfold.py exclude doesn't work, but the "fmt: off" inside of it does
