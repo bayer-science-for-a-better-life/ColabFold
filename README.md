@@ -23,7 +23,11 @@ af_predict af_predict custom_msa/ structures/custom_msa/ --num-recycle 1 --num-m
 
 ## installation
 Has definitely some hiccups. You can use the provided yaml and add:
-```pip install alphafold-colabfold --no-deps```
+
+```bash
+mamba env create  --file environment.yml --prefix path/to/env
+pip install alphafold-colabfold --no-deps
+```
 
 
 ```diff
