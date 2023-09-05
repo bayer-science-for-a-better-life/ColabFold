@@ -21,6 +21,10 @@ Custom MSAs can be provided as well, make sure that the a3m files are in a singl
 af_predict af_predict custom_msa/ structures/custom_msa/ --num-recycle 1 --num-models 1
 ```
 
+## installation
+Has definitely some hiccups. You can use the provided yaml and add:
+```pip install alphafold-colabfold --no-deps```
+
 
 ```diff
 + 31Jul2023: 2023/07/31: The ColabFold MSA server is back to normal

@@ -42,6 +42,7 @@ dependencies:
   - mmseqs2=14.7e284
   - py3Dmol
   - biopython==1.79
+  - tqdm
 
   # convenience
   - jupyter
@@ -51,5 +52,6 @@ dependencies:
       # - git+https://github.com/sokrypton/ColabFold
       # - git+https://github.com/deepmind/alphafold
       - https://storage.googleapis.com/jax-releases/cuda11/jaxlib-0.3.25+cuda11.cudnn82-cp39-cp39-manylinux2014_x86_64.whl
-      - alphafold-colabfold
+      #- alphafold-colabfold
+      - ml-collections
       - git+https://github.com/bayer-science-for-a-better-life/ColabFold
