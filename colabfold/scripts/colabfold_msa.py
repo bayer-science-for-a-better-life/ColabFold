@@ -398,8 +398,10 @@ def main():
         help="Environmental database",
     )
     # poor man's boolean arguments
-    parser.add_argument("--use-env", type=int, default=1, choices=[0, 1])
-    parser.add_argument("--use-templates", type=int, default=0, choices=[0, 1])
+    parser.add_argument("--use-env", type=int, default=1, choices=[0, 1], 
+                        help="Use environmental database (default: 1)")
+    parser.add_argument("--use-templates", type=int, default=0, choices=[0, 1],
+                        help="Use templates database (default: 0)")
     parser.add_argument("--filter", type=int, default=1, choices=[0, 1])
     parser.add_argument(
         "--mmseqs",
@@ -407,8 +409,10 @@ def main():
         default=Path("mmseqs"),
         help="Location of the mmseqs binary",
     )
-    parser.add_argument("--expand-eval", type=float, default=math.inf)
-    parser.add_argument("--align-eval", type=int, default=10)
+    parser.add_argument("--expand-eval", type=float, default=math.inf,
+                        help="(mmseqs expand -e) E-value for expansion (default: inf)")
+    parser.add_argument("--align-eval", type=int, default=10,
+                        help="(mmseqs align -e) E-value for alignment (default: 10)")
     parser.add_argument("--diff", type=int, default=3000)
     parser.add_argument("--qsc", type=float, default=-20.0)
     parser.add_argument("--max-accept", type=int, default=1000000)
