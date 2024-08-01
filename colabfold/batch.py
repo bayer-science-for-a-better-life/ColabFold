@@ -1862,7 +1862,7 @@ def main():
         download_alphafold_params(model_type, data_dir)
 
     if args.msa_mode != "single_sequence" and not args.templates:
-        uses_api = any((query[2] is None for query in queries))
+        uses_api = False
         if uses_api and args.host_url == DEFAULT_API_SERVER:
             print(ACCEPT_DEFAULT_TERMS, file=sys.stderr)
 
