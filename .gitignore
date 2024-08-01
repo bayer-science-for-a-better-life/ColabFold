@@ -8,6 +8,7 @@
 /pytestemp
 __pycache__
 .DS_Store
+.idea
 
 .idea/deployment.xml
 
