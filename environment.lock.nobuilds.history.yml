@@ -1,0 +1,33 @@
+name: mlr_colabfold_202408
+channels:
+  - sdvillal
+  - bioconda
+  - conda-forge
+dependencies:
+  - absl-py
+  - appdirs
+  - biopython
+  - chex
+  - cudatoolkit=11.8.0
+  - dm-haiku
+  - dm-tree
+  - hhsuite
+  - immutabledict
+  - jax=0.4.23
+  - jaxlib==0.4.23[build=cuda*]
+  - jupyter
+  - kalign2
+  - mmseqs2
+  - nvidia::cuda-nvcc
+  - openmm==8.0
+  - pandas
+  - pdbfixer
+  - pip
+  - pytest
+  - python[version='>=3.9,<3.12']
+  - tensorflow
+  - tqdm
+  - ca-certificates
+  - certifi
+  - openssl
+  - parallel

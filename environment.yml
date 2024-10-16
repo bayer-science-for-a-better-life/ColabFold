@@ -1,0 +1,43 @@
+# Readme:
+# Installation of this environment requires the typical correct paths to the databases
+# we can create the environment with the following command:
+# mamba env update -f environment.yml --prefix /raid/cache/biomols-public/environments/mlr_colabfold_202408
+# mamba activate /raid/cache/biomols-public/environments/mlr_colabfold_202408
+# pip install -e . --no-deps
+# pip install --no-deps alphafold-colabfold
+name: mlr_colabfold_202408
+channels:
+  - nodefaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - python>=3.9,<3.12
+  - pip
+  # deep learning
+  - cudatoolkit=11.8.0
+  - nvidia::cuda-nvcc
+  - jax=0.4.23
+  - jaxlib=0.4.23=cuda*
+  - tensorflow
+  - dm-tree
+  - dm-haiku
+  # domain stuff
+  - openmm==8.0
+  - pdbfixer
+  - kalign2
+  - hhsuite
+  - mmseqs2
+  - biopython
+  - pandas
+  # misc
+  - appdirs
+  - tqdm
+  - immutabledict
+  - chex
+  - absl-py
+  - jupyter
+  - pytest
+  - pip:
+    - ml-collections
+    # - alphafold-colabfold
+# we still need to install colabfold manually afterwards without dependencies!

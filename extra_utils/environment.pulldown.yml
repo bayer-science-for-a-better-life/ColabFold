@@ -1,0 +1,63 @@
+# Readme:
+# Installation of this environment requires the typical correct paths to the databases
+# we can create the environment with the following command:
+# git clone --recurse-submodules https://github.com/KosinskiLab/AlphaPulldown.git
+# mamba env update -f environment.pulldown.yml --prefix /raid/cache/biomols-public/environments/mlr_alphapulldown_202408
+# mamba activate /raid/cache/biomols-public/environments/mlr_alphapulldown_202408
+# pip install -e . --no-deps
+# cp alphapulldown/package_data/stereo_chemical_props.txt alphafold/alphafold/common/
+# pip install -e ColabFold --no-deps
+# pip install -e alphafold --no-deps
+
+# there are also compiled versionof hhsuite and hmmer located here: /raid/cache/biomols-public/software/bin/bin
+# further environment variables can be set with: `conda env config vars set my_var=value`
+
+# alphapulldown's environment.yml
+# from the official github (202408)
+# conda create -n AlphaPulldown -c omnia -c bioconda -c conda-forge
+# python==3.10 openmm==8.0 pdbfixer==1.9 kalign2 cctbx-base pytest importlib_metadata hhsuite modelcif
+name: mlr_alphapulldown_202408
+channels:
+  - nodefaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - python>=3.9,<3.12
+  - pip
+  # deep learning
+  - cudatoolkit=11.8.0
+  - nvidia::cuda-nvcc
+  - jax=0.4.23
+  - jaxlib=0.4.23=cuda*
+  - tensorflow
+  - dm-tree
+  - dm-haiku
+  # domain stuff
+  - openmm==8.0 # larger versions fail in relaxation
+  - pdbfixer
+  - kalign2
+  - hhsuite
+  - hmmer
+  - mmseqs2
+  - pandas
+  - hhsuite
+  - modelcif
+  # misc
+  - appdirs
+  - tqdm
+  - immutabledict
+  - chex
+  - absl-py
+  - jupyter
+  - pytest
+  - importlib_metadata
+  - py3Dmol
+  - ipython
+  - biopython==1.81  # required because from 1.8X (for sure from 1.84 there is an error with SCOP data)
+  - pip:
+    - ml-collections
+    # - alphafold-colabfold
+    # - pip install --no-deps -e alphafold
+    # - pip install --no-deps -e ColabFold
+    # - pip install --no-deps -e .
+# we still need to install colabfold manually afterwards without dependencies!

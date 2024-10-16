@@ -35,3 +35,7 @@ __pycache__
 .idea/vcs.xml
 
 .idea/workspace.xml
+
+extra_utils/foldseek.smk
+
+colabfold/bayer/wip/
