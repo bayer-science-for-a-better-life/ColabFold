@@ -37,7 +37,4 @@ dependencies:
   - absl-py
   - jupyter
   - pytest
-  - pip:
-    - ml-collections
-    # - alphafold-colabfold
-# we still need to install colabfold manually afterwards without dependencies!
+  - ml-collections

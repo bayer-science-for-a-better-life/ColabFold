@@ -304,7 +304,6 @@ dependencies:
   - pip:
       - alphafold-colabfold==2.3.6
       - alv==1.8.0
-      - antidoto-projects==2024.2
       - colabfold==1.5.5
       - contextlib2==21.6.0
       - ml-collections==0.1.1
