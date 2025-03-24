@@ -1,0 +1,29 @@
+name: colab_202503
+channels:
+  - sdvillal
+  - bioconda
+  - conda-forge
+dependencies:
+  - python[version='>=3.9,<3.12']
+  - pip
+  - cudatoolkit=11.8.0
+  - nvidia::cuda-nvcc
+  - jax=0.4.23
+  - jaxlib==0.4.23[build=cuda*]
+  - tensorflow
+  - dm-tree
+  - dm-haiku
+  - openmm==8.0
+  - pdbfixer
+  - kalign2
+  - hhsuite
+  - mmseqs2
+  - biopython
+  - pandas
+  - appdirs
+  - tqdm
+  - immutabledict
+  - chex
+  - absl-py
+  - jupyter
+  - pytest
